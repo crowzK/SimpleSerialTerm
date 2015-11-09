@@ -24,6 +24,24 @@ public partial class MainWindow
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 	
 	private global::Gtk.TextView consoleTextView;
+	
+	private global::Gtk.Statusbar statusbar1;
+	
+	private global::Gtk.HBox hbox3;
+	
+	private global::Gtk.VSeparator vseparator3;
+	
+	private global::Gtk.Label status;
+	
+	private global::Gtk.VSeparator vseparator2;
+	
+	private global::Gtk.HBox hbox2;
+	
+	private global::Gtk.Label COM;
+	
+	private global::Gtk.VSeparator vseparator1;
+	
+	private global::Gtk.Label Baudrate;
 
 	protected virtual void Build ()
 	{
@@ -79,6 +97,84 @@ public partial class MainWindow
 		this.vbox4.Add (this.GtkScrolledWindow);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.GtkScrolledWindow]));
 		w4.Position = 1;
+		// Container child vbox4.Gtk.Box+BoxChild
+		this.statusbar1 = new global::Gtk.Statusbar ();
+		this.statusbar1.Name = "statusbar1";
+		this.statusbar1.Spacing = 6;
+		// Container child statusbar1.Gtk.Box+BoxChild
+		this.hbox3 = new global::Gtk.HBox ();
+		this.hbox3.Name = "hbox3";
+		this.hbox3.Spacing = 6;
+		// Container child hbox3.Gtk.Box+BoxChild
+		this.vseparator3 = new global::Gtk.VSeparator ();
+		this.vseparator3.Name = "vseparator3";
+		this.hbox3.Add (this.vseparator3);
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.vseparator3]));
+		w5.Position = 0;
+		w5.Expand = false;
+		w5.Fill = false;
+		// Container child hbox3.Gtk.Box+BoxChild
+		this.status = new global::Gtk.Label ();
+		this.status.Name = "status";
+		this.status.LabelProp = global::Mono.Unix.Catalog.GetString ("status");
+		this.hbox3.Add (this.status);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.status]));
+		w6.Position = 1;
+		w6.Expand = false;
+		w6.Fill = false;
+		// Container child hbox3.Gtk.Box+BoxChild
+		this.vseparator2 = new global::Gtk.VSeparator ();
+		this.vseparator2.Name = "vseparator2";
+		this.hbox3.Add (this.vseparator2);
+		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.vseparator2]));
+		w7.Position = 2;
+		w7.Expand = false;
+		w7.Fill = false;
+		this.statusbar1.Add (this.hbox3);
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.hbox3]));
+		w8.Position = 1;
+		w8.Expand = false;
+		w8.Fill = false;
+		// Container child statusbar1.Gtk.Box+BoxChild
+		this.hbox2 = new global::Gtk.HBox ();
+		this.hbox2.Name = "hbox2";
+		this.hbox2.Spacing = 6;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.COM = new global::Gtk.Label ();
+		this.COM.Name = "COM";
+		this.COM.LabelProp = global::Mono.Unix.Catalog.GetString ("COM");
+		this.hbox2.Add (this.COM);
+		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.COM]));
+		w9.Position = 0;
+		w9.Expand = false;
+		w9.Fill = false;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.vseparator1 = new global::Gtk.VSeparator ();
+		this.vseparator1.Name = "vseparator1";
+		this.hbox2.Add (this.vseparator1);
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.vseparator1]));
+		w10.Position = 1;
+		w10.Expand = false;
+		w10.Fill = false;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.Baudrate = new global::Gtk.Label ();
+		this.Baudrate.Name = "Baudrate";
+		this.Baudrate.LabelProp = global::Mono.Unix.Catalog.GetString ("Baudrate");
+		this.hbox2.Add (this.Baudrate);
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.Baudrate]));
+		w11.Position = 2;
+		w11.Expand = false;
+		w11.Fill = false;
+		this.statusbar1.Add (this.hbox2);
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.hbox2]));
+		w12.Position = 2;
+		w12.Expand = false;
+		w12.Fill = false;
+		this.vbox4.Add (this.statusbar1);
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.statusbar1]));
+		w13.Position = 2;
+		w13.Expand = false;
+		w13.Fill = false;
 		this.Add (this.vbox4);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();

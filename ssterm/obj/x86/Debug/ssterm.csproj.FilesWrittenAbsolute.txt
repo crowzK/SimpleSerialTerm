@@ -1,6 +1,0 @@
-/srv/develop/mono/ssterm/ssterm/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/srv/develop/mono/ssterm/ssterm/obj/x86/Debug/testapp.gtk-gui.gui.stetic
-/srv/develop/mono/ssterm/ssterm/bin/Debug/testapp.exe.mdb
-/srv/develop/mono/ssterm/ssterm/bin/Debug/testapp.exe
-/srv/develop/mono/ssterm/ssterm/obj/x86/Debug/testapp.exe
-/srv/develop/mono/ssterm/ssterm/obj/x86/Debug/testapp.exe.mdb

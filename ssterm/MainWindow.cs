@@ -24,6 +24,8 @@ using testapp;
 public partial class MainWindow: Gtk.Window
 {
 	SerialPort _serialPort;// = new SerialPort();
+	Boolean portStatus = false;
+
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -35,6 +37,18 @@ public partial class MainWindow: Gtk.Window
 		_serialPort.StopBits = StopBits.One;
 		_serialPort.ReadTimeout = 500;
 		_serialPort.WriteTimeout = 500;
+		DisplayStatus (portStatus);
+
+	}
+	private void DisplayStatus(bool _status)
+	{
+		if (_status == true)
+			status.Text = "OPEN";
+		else
+			status.Text = "CLOSE";
+		COM.Text = _serialPort.PortName;
+		Baudrate.Text = "" + _serialPort.BaudRate;
+
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
