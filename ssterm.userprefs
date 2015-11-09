@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ssterm/MainWindow.cs">
+    <Files>
+      <File FileName="ssterm/MainWindow.cs" Line="29" Column="29" />
+      <File FileName="ssterm/Program.cs" Line="4" Column="4" />
+      <File FileName="ssterm/WindowSetting.cs" Line="17" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

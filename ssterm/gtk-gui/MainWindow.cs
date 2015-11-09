@@ -17,6 +17,10 @@ public partial class MainWindow
 	
 	private global::Gtk.Action preferencesAction;
 	
+	private global::Gtk.Action connectAction;
+	
+	private global::Gtk.Action disconnectAction;
+	
 	private global::Gtk.VBox vbox4;
 	
 	private global::Gtk.Toolbar toolbar1;
@@ -66,6 +70,10 @@ public partial class MainWindow
 		w1.Add (this.ExitAction, null);
 		this.preferencesAction = new global::Gtk.Action ("preferencesAction", null, null, "gtk-preferences");
 		w1.Add (this.preferencesAction, null);
+		this.connectAction = new global::Gtk.Action ("connectAction", null, null, "gtk-connect");
+		w1.Add (this.connectAction, null);
+		this.disconnectAction = new global::Gtk.Action ("disconnectAction", null, null, "gtk-disconnect");
+		w1.Add (this.disconnectAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -76,7 +84,7 @@ public partial class MainWindow
 		this.vbox4.Name = "vbox4";
 		this.vbox4.Spacing = 6;
 		// Container child vbox4.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='preferencesAction' action='preferencesAction'/></toolbar></ui>");
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='preferencesAction' action='preferencesAction'/><toolitem name='connectAction' action='connectAction'/><toolitem name='disconnectAction' action='disconnectAction'/></toolbar></ui>");
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 		this.toolbar1.Name = "toolbar1";
 		this.toolbar1.ShowArrow = false;

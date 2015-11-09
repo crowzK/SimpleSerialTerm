@@ -42,6 +42,16 @@
         <property name="StockId">gtk-preferences</property>
         <signal name="Activated" handler="OnPreferencesActionActivated" />
       </action>
+      <action id="connectAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-connect</property>
+      </action>
+      <action id="disconnectAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-disconnect</property>
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MONO TEST</property>
@@ -57,6 +67,8 @@
             <property name="ShowArrow">False</property>
             <node name="toolbar1" type="Toolbar">
               <node type="Toolitem" action="preferencesAction" />
+              <node type="Toolitem" action="connectAction" />
+              <node type="Toolitem" action="disconnectAction" />
             </node>
           </widget>
           <packing>
