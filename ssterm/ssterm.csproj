@@ -69,7 +69,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowSetting.cs" />
-    <Compile Include="gtk-gui\testapp.WindowSetting.cs" />
+    <Compile Include="gtk-gui\ssterm.WindowSetting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

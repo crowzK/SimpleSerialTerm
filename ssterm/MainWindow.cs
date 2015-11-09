@@ -19,7 +19,7 @@ using Gtk;
 using System.IO;
 using System.Windows;
 using System.IO.Ports;
-using testapp;
+using ssterm;
 
 public partial class MainWindow: Gtk.Window
 {

@@ -192,7 +192,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="testapp.WindowSetting" design-size="400 300">
+  <widget class="Gtk.Window" id="ssterm.WindowSetting" design-size="400 300">
     <action-group name="Default">
       <action id="saveAction">
         <property name="Type">Action</property>

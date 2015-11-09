@@ -19,7 +19,7 @@ using System;
 using System.IO;
 using System.IO.Ports;
 
-namespace testapp
+namespace ssterm
 {
 	public partial class WindowSetting : Gtk.Window
 	{
