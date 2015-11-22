@@ -47,6 +47,7 @@ public partial class MainWindow: Gtk.Window
 		DisplayStatus ();
 		disconnectAction.Visible = false;
 		workerThread = new Thread(DoReceive);
+		workerThread.Start ();
 
 	}
 	~MainWindow()
@@ -143,7 +144,6 @@ public partial class MainWindow: Gtk.Window
 		disconnectAction.Visible = true;
 		portStatus = true;
 		DisplayStatus ();
-		workerThread.Start ();
 	}
 	protected void OnDisconnectActionActivated (object sender, EventArgs e)
 	{
@@ -159,7 +159,6 @@ public partial class MainWindow: Gtk.Window
 			disconnectAction.Visible = false;
 			portStatus = false;
 			DisplayStatus ();
-			workerThread.Abort ();
 		}
 	}
 
