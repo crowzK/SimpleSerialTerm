@@ -24,6 +24,9 @@ namespace ssterm
 	public partial class WindowSetting : Gtk.Window
 	{
 		SerialPort _serial;
+		public delegate  void DisplayStatusHandler();
+		public event DisplayStatusHandler dis;
+
 		public WindowSetting (SerialPort serial) :
 			base (Gtk.WindowType.Toplevel)
 		{
@@ -42,6 +45,8 @@ namespace ssterm
 			_serial.PortName = entry2.Text;
 			_serial.BaudRate = Convert.ToInt32 (entry3.Text);
 			_serial.DataBits = Convert.ToInt32 (entry6.Text);
+			if (dis != null)
+				dis ();
 			this.Destroy ();
 		}
 		protected void OnDeleteActionActivated (object sender, EventArgs e)

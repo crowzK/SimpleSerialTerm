@@ -20,11 +20,17 @@ using System.IO;
 using System.Windows;
 using System.IO.Ports;
 using ssterm;
+using System.Text;
+using System.Threading;
+using System.Reflection;
 
 public partial class MainWindow: Gtk.Window
 {
 	SerialPort _serialPort;// = new SerialPort();
 	Boolean portStatus = false;
+	public Thread workerThread;
+
+
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
@@ -37,12 +43,46 @@ public partial class MainWindow: Gtk.Window
 		_serialPort.StopBits = StopBits.One;
 		_serialPort.ReadTimeout = 500;
 		_serialPort.WriteTimeout = 500;
-		DisplayStatus (portStatus);
+
+		DisplayStatus ();
+		disconnectAction.Visible = false;
+		workerThread = new Thread(DoReceive);
 
 	}
-	private void DisplayStatus(bool _status)
+	~MainWindow()
 	{
-		if (_status == true)
+		_serialPort.Close ();
+		workerThread.Abort ();
+	}
+
+	public virtual void Dispose()
+	{
+		_serialPort.Close ();
+		workerThread.Abort ();
+		// Suppress finalization.
+		GC.SuppressFinalize(this);
+	}
+
+	public void DoReceive()
+	{
+		while (true) {
+			byte[] recvByte = new byte[1000];
+			try {
+					_serialPort.Read (recvByte, 0, 1000);
+					Gtk.Application.Invoke(delegate
+					{
+						consoleTextView.Buffer.Text += Encoding.ASCII.GetString (recvByte);
+					});
+				Thread.Sleep(1);
+			} catch {
+
+			}
+		}
+	}
+
+	private void DisplayStatus()
+	{
+		if (portStatus == true)
 			status.Text = "OPEN";
 		else
 			status.Text = "CLOSE";
@@ -83,7 +123,76 @@ public partial class MainWindow: Gtk.Window
 	{
 		//throw new NotImplementedException ();
 		WindowSetting winset = new WindowSetting (_serialPort);
+		winset.dis += DisplayStatus;
 		winset.Show ();
 	}
 
+	protected void OnConnectActionActivated (object sender, EventArgs e)
+	{
+	//	throw new NotImplementedException ();
+		try
+		{
+		_serialPort.Open ();
+		}
+		catch(Exception ex) 
+		{
+			consoleTextView.Buffer.Text += ex.Message+"\n";
+			return;
+		}
+		connectAction.Visible = false;
+		disconnectAction.Visible = true;
+		portStatus = true;
+		DisplayStatus ();
+		workerThread.Start ();
+	}
+	protected void OnDisconnectActionActivated (object sender, EventArgs e)
+	{
+		//throw new NotImplementedException ();
+		try
+		{
+			_serialPort.Close ();
+		}catch(Exception ex) {
+			consoleTextView.Buffer.Text += ex.Message + "\n";
+		}
+		finally {
+			connectAction.Visible = true;
+			disconnectAction.Visible = false;
+			portStatus = false;
+			DisplayStatus ();
+			workerThread.Abort ();
+		}
+	}
+
+	protected void OnConsoleTextViewKeyReleaseEvent (object o, KeyReleaseEventArgs args)
+	{
+		//throw new NotImplementedException ();
+		Int16 key = (Int16)args.Event.KeyValue;
+		byte[] keyAscii = new byte[1];
+
+		if (key < 0) {
+			consoleTextView.Buffer.Text += args.Event.Key;
+
+			if (args.Event.Key == Gdk.Key.Delete) {
+				keyAscii [0] = 127;
+			} else if (args.Event.Key == Gdk.Key.Return) {
+				keyAscii = new byte[2];
+				keyAscii [0] = 10;
+				keyAscii [1] = 13;
+			} else if (args.Event.Key == Gdk.Key.Escape) {
+				keyAscii [0] = 27;
+			} else if (args.Event.Key == Gdk.Key.BackSpace) {
+				keyAscii [0] = 08;
+			} else {
+				return;
+			}
+
+		} else {
+			keyAscii[0] = (byte)key;
+		}
+
+		if (portStatus == true) {
+			_serialPort.Write (keyAscii, 0, keyAscii.Length);
+		}
+
+	}
 }

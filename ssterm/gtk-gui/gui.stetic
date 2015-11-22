@@ -46,11 +46,13 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-connect</property>
+        <signal name="Activated" handler="OnConnectActionActivated" />
       </action>
       <action id="disconnectAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-disconnect</property>
+        <signal name="Activated" handler="OnDisconnectActionActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -87,7 +89,9 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
+                <property name="Editable">False</property>
                 <property name="Text" translatable="yes" />
+                <signal name="KeyReleaseEvent" handler="OnConsoleTextViewKeyReleaseEvent" />
               </widget>
             </child>
           </widget>

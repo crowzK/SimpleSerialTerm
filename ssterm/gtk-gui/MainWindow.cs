@@ -101,6 +101,7 @@ public partial class MainWindow
 		this.consoleTextView = new global::Gtk.TextView ();
 		this.consoleTextView.CanFocus = true;
 		this.consoleTextView.Name = "consoleTextView";
+		this.consoleTextView.Editable = false;
 		this.GtkScrolledWindow.Add (this.consoleTextView);
 		this.vbox4.Add (this.GtkScrolledWindow);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.GtkScrolledWindow]));
@@ -193,5 +194,8 @@ public partial class MainWindow
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.OpenAction1.Activated += new global::System.EventHandler (this.OnOpenAction1Activated);
 		this.preferencesAction.Activated += new global::System.EventHandler (this.OnPreferencesActionActivated);
+		this.connectAction.Activated += new global::System.EventHandler (this.OnConnectActionActivated);
+		this.disconnectAction.Activated += new global::System.EventHandler (this.OnDisconnectActionActivated);
+		this.consoleTextView.KeyReleaseEvent += new global::Gtk.KeyReleaseEventHandler (this.OnConsoleTextViewKeyReleaseEvent);
 	}
 }

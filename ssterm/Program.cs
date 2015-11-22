@@ -28,6 +28,7 @@ namespace testapp
 			MainWindow win = new MainWindow ();
 			win.Show ();
 			Application.Run ();
+			win.Dispose ();
 		}
 	}
 }
