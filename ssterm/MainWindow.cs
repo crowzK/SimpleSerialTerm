@@ -170,7 +170,7 @@ public partial class MainWindow: Gtk.Window
 		byte[] keyAscii = new byte[1];
 
 		if (key < 0) {
-			consoleTextView.Buffer.Text += args.Event.Key;
+			//consoleTextView.Buffer.Text += args.Event.Key;
 
 			if (args.Event.Key == Gdk.Key.Delete) {
 				keyAscii [0] = 127;

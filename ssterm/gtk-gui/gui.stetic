@@ -91,6 +91,7 @@
                 <property name="ShowScrollbars">True</property>
                 <property name="Editable">False</property>
                 <property name="Text" translatable="yes" />
+                <property name="WrapMode">WordChar</property>
                 <signal name="KeyReleaseEvent" handler="OnConsoleTextViewKeyReleaseEvent" />
               </widget>
             </child>

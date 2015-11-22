@@ -102,6 +102,7 @@ public partial class MainWindow
 		this.consoleTextView.CanFocus = true;
 		this.consoleTextView.Name = "consoleTextView";
 		this.consoleTextView.Editable = false;
+		this.consoleTextView.WrapMode = ((global::Gtk.WrapMode)(3));
 		this.GtkScrolledWindow.Add (this.consoleTextView);
 		this.vbox4.Add (this.GtkScrolledWindow);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.GtkScrolledWindow]));
